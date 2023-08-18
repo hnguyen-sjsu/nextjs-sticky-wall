@@ -10,20 +10,54 @@
     box-sizing: border-box;
 }
 
-body {
+body,
+pre {
     font-family: Inter;
 }
+@layer utilities {
+    .flexCenter {
+        @apply flex justify-center items-center;
+    }
 
-.flexCenter {
-    @apply flex justify-center items-center;
+    .flexBetween {
+        @apply flex justify-between items-center;
+    }
+
+    .flexStart {
+        @apply flex items-center justify-start;
+    }
+
+    .flexEnd {
+        @apply flex items-center justify-end;
+    }
 }
 
-.flexBetween {
-    @apply flex justify-between items-center;
+.bg_yellow {
+    @apply bg-yellow-200;
 }
 
-.flexStart {
-    @apply flex items-center justify-start;
+.bg_orange {
+    @apply bg-orange-200;
+}
+
+.bg_violet {
+    @apply bg-violet-200;
+}
+
+.bg_teal {
+    @apply bg-teal-200;
+}
+
+.bg_lime {
+    @apply bg-lime-200;
+}
+
+.bg_cyan {
+    @apply bg-cyan-200;
+}
+
+.bg_rose {
+    @apply bg-rose-200;
 }
 
 .text-small {
@@ -116,7 +150,15 @@ body {
 
 /* Form Field */
 .form_field-input {
-    @apply w-full outline-0 bg-light-white-100 rounded-xl p-4;
+    @apply w-full bg-light-white-100/25 rounded-xl p-4 outline-0 focus:ring-2 focus:ring-zinc-400/25;
+}
+
+.sticky_note-container {
+    @apply flex flex-col rounded-xl px-4 py-4 gap-y-4 hover:shadow-xl;
+}
+
+.sticky_note-action-btn {
+    @apply p-2 hover:bg-light-white/50 rounded-full;
 }
 
 /* Modal */
@@ -124,8 +166,12 @@ body {
     @apply fixed z-10 left-0 right-0 top-0 bottom-0 mx-auto bg-black/80;
 }
 
-.modal_wrapper {
+/* .modal_wrapper {
     @apply flex justify-start items-center flex-col absolute h-[95%] w-full bottom-0 bg-white rounded-t-3xl lg:px-40 px-8 pt-14 pb-72 overflow-auto;
+} */
+
+.modal_wrapper {
+    @apply container h-full w-full mx-0 sm:mx-auto;
 }
 
 /* Navbar */
@@ -163,4 +209,122 @@ body {
 /* Profile Projects */
 .profile_projects {
     @apply grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 mt-5;
+}
+
+.color_picker_btn {
+    @apply p-2 rounded-full;
+}
+
+.sidebar_link_item {
+    @apply p-4 rounded-full hover:cursor-pointer;
+}
+
+.sidebar_link_item-active {
+    @apply text-black/60 bg-zinc-200 font-semibold;
+}
+
+.sidebar_link_item-inactive {
+    @apply text-gray hover:text-black/60 hover:bg-zinc-200;
+}
+
+.sidebar_section_title {
+    @apply font-semibold text-lg;
+}
+
+.rounded-btn {
+    @apply p-2 rounded-full hover:bg-black/10;
+}
+
+.sidebar_container {
+    @apply max-lg:hidden bg-slate-100 h-full min-h-full mx-4;
+    @apply rounded-2xl overflow-x-hidden h-full;
+    @apply transition-all ease-in-out duration-500;
+    @apply flex flex-col;
+    @apply shadow-sm;
+}
+
+.sidebar_container:hover {
+    @apply w-[16rem];
+}
+
+.sidebar_container {
+    @apply w-[4rem];
+}
+
+.menu_wrapper {
+    @apply relative flex mt-2;
+}
+
+.menu_btn {
+    @apply absolute right-[1.35rem] top-2;
+}
+
+.menu_title {
+    @apply relative top-[0.3rem] ml-4 font-semibold text-xl;
+    @apply transition-opacity ease-in-out duration-500;
+}
+
+.sidebar_container .menu_title {
+    @apply opacity-0;
+}
+.sidebar_container:hover .menu_title {
+    @apply opacity-100;
+}
+
+.menu_item_wrapper {
+    @apply flex items-center py-2 my-1 rounded-full cursor-pointer;
+    @apply hover:text-white hover:bg-orange-500;
+}
+
+.menu_item_wrapper-active {
+    @apply text-white bg-orange-500;
+}
+
+.menu_item_wrapper .menu_item_label {
+    @apply truncate ml-3;
+    @apply transition-opacity ease-in-out duration-500;
+}
+.sidebar_container:hover .menu_item_wrapper .menu_item_label {
+    @apply opacity-100;
+}
+
+.sidebar_container .menu_item_wrapper .menu_item_label {
+    @apply opacity-0;
+}
+
+.menu_item_wrapper .menu_item_icon {
+    @apply ml-[0.8rem];
+}
+
+.signout_btn_wrapper {
+    @apply absolute bottom-8;
+}
+
+.section_title {
+    @apply font-semibold text-sm uppercase ml-2 truncate mt-4;
+}
+
+.sidebar_container .section_title {
+    @apply opacity-0;
+    @apply transition-opacity ease-in-out duration-500;
+}
+
+.sidebar_container:hover .section_title {
+    @apply opacity-100;
+}
+
+.sidebar_container .list_item:hover * {
+    @apply text-white;
+}
+
+.page_title {
+    @apply font-bold text-3xl;
+}
+
+.text_field_container {
+    @apply bg-slate-200 w-full px-6 py-4 rounded-full;
+}
+
+.text_field_container input {
+    @apply bg-transparent;
 }

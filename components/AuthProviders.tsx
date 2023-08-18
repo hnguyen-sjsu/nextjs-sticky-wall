@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { getProviders, signIn } from 'next-auth/react'
-
+import { FcGoogle } from 'react-icons/fc'
 type Provider = {
     id: string
     name: string
@@ -32,10 +32,16 @@ const AuthProviders = () => {
                 {Object.values(providers).map((provider: Provider, i) => (
                     <button
                         type='button'
-                        key={provider?.id}
+                        className='menu_item_wrapper hover:bg-white hover:text-black ring-inset ring-black/20 ring-1 w-full flexCenter'
                         onClick={() => signIn(provider?.id)}
+                        key={provider?.id}
                     >
-                        {provider?.id}
+                        <div className='menu_item_icon'>
+                            <FcGoogle size={20} />
+                        </div>
+                        <span className='menu_item_label'>
+                            Sign In with Google
+                        </span>
                     </button>
                 ))}
             </div>

@@ -30,6 +30,12 @@ module.exports = {
             maxWidth: {
                 '10xl': '1680px',
             },
+            transitionProperty: {
+                height: 'height',
+                width: 'width',
+                spacing: 'margin, padding',
+                justify: 'justify',
+            },
         },
     },
     plugins: [],

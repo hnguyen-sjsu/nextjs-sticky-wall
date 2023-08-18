@@ -1,12 +1,11 @@
-import React from 'react'
-import AuthProviders from './AuthProviders'
+import { getCurrentUser } from '@/libs/session'
 
-const Navbar = () => {
-    const session = null
+import SideBarToggleButton from './SideBar/SideBarToggleButton'
+
+const Navbar = async () => {
     return (
-        <div>
-            <h1 className='font-bold text-2xl'>Sticky Wall</h1>
-            <AuthProviders />
+        <div className='sm:hidden fixed z-50'>
+            <SideBarToggleButton />
         </div>
     )
 }
